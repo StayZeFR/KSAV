@@ -11,6 +11,8 @@ class CustomerController extends BaseController
         $manager = new ClientModel();
         $customers = $manager->findAll();
 
+        var_dump($customers);
+
         return view("pages/customer/list", [ 
             "page" => "customer", 
             "customers" => $customers 
