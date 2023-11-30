@@ -118,7 +118,7 @@
                                     <label class="slds-form-element__label" for="positifs-review">Points positifs</label>
                                     <div class="slds-form-element__control">
                                         <textarea name="positifs-review" id="positifs-review" class="slds-textarea"
-                                            style="height: 100px !important; resize: none; <?= ($action == "view" ? "disabled" : "") ?>><?= ($action == "add" ? "" : $review["AVIS_POINTSPOSITIFS"]) ?></textarea>
+                                            style="height: 100px !important; resize: none;" <?= ($action == "view" ? "disabled" : "") ?>><?= ($action == "add" ? "" : $review["AVIS_POINTSPOSITIFS"]) ?></textarea>
                                     </div>
                                 </div>
                             </div>
