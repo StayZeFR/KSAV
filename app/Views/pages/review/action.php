@@ -22,12 +22,12 @@
                 <div class="slds-grid slds-gutters">
                     <div class="slds-col">
                         <div class="slds-form-element">
-                            <label class="slds-form-element__label" for="reservation-review">N°Reservation<abbr
+                            <label class="slds-form-element__label" for="reservation-review">N°Reservation (5 chiffres)<abbr
                                     class="slds-required">*</abbr></label>
                             <div class="slds-form-element__control">
                                 <input type="text" name="reservation-review" id="reservation-review"
                                     value="<?= ($action == "add" ? "" : $review["ID_RESERVATION"]) ?>"
-                                    class="slds-input" required <?= ($action == "view" ? "disabled" : "") ?>>
+                                    class="slds-input" required <?= ($action == "view" ? "disabled" : "") ?> minlength="5" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
                             </div>
                         </div>
                     </div>
