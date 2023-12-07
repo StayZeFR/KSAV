@@ -21,7 +21,7 @@ function toggleMenu(element) {
 }
 
 /**
- * Fonction permettant 
+ * Fonction permettant de mettre en forme un numéro de téléphone en ajoutant des espaces
  * 
  * @param {*} spaces 
  * @param {*} text 
@@ -33,4 +33,25 @@ function setSpaceText(spaces, text) {
         result += (spaces.includes(i) ? (" " + text[i]) : text[i]);
     }
     return result
+}
+
+/**
+ * Fonction permettant de supprimer une donnée en affichant une boîte de dialogue de confirmation
+ * 
+ * @param {*} text 
+ * @param {*} url 
+ */
+function deleteData(html, url) {
+    Swal.fire({
+        icon: "question",
+        title: "Suppression",
+        html: html,
+        confirmButtonText: "Supprimer",
+        cancelButtonText: "Annuler",
+        showCancelButton: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url;
+        }
+    });
 }

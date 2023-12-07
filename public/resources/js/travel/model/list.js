@@ -1,3 +1,7 @@
+function deleteTravel(id) {
+    deleteData(("<p>Etes vous sure de vouloir supprimer ce modèle de voyage : <b>" + id + "</b></p>"), "/travel/model/" + id + "/delete");
+}
+
 $(document).ready(function() {
 
     const btnAction = (id) => {
@@ -16,7 +20,7 @@ $(document).ready(function() {
                     "</a>" +
                     "</li>" +
                     "<li class='slds-dropdown__item' role='presentation'>" +
-                    "<a href='/travel/model/" + id + "/delete' role='menuitem' tabindex='-1'>" +
+                    "<a href='javascript:deleteTravel(" + id + ")' role='menuitem' tabindex='-1'>" +
                     "<span class='slds-truncate'>Supprimer</span>" +
                     "</a>" +
                     "</li>" +
