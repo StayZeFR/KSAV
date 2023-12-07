@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS utilisateur
    MDP VARCHAR(255) NULL  
    , PRIMARY KEY (IDUTILISATEUR) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       TABLE : AVIS
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS avis
    DATEAVIS DATE NULL  
    , PRIMARY KEY (IDAVIS) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       TABLE : PRESTATION
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS prestation
    DESCRIPTION VARCHAR(255) NULL  
    , PRIMARY KEY (IDPRESTATION) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       TABLE : CLIENT
@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS client
    TEL CHAR(32) NULL  
    , PRIMARY KEY (IDCLIENT) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       TABLE : TYPEVOYAGE
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS typevoyage
    DESCRIPTION VARCHAR(255) NULL  
    , PRIMARY KEY (IDTYPEVOYAGE) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       TABLE : RESERVATION
@@ -83,7 +83,7 @@ CREATE TABLE IF NOT EXISTS reservation
    IDAVIS INTEGER NOT NULL  
    , PRIMARY KEY (IDRESERVATION) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE RESERVATION
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS modelevoyage
    TOUROPERATOR CHAR(32) NULL  
    , PRIMARY KEY (IDMODELEVOYAGE) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE MODELEVOYAGE
@@ -134,7 +134,7 @@ CREATE TABLE IF NOT EXISTS voyage
    DATEDEPART DATE NOT NULL  
    , PRIMARY KEY (IDVOYAGE) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE VOYAGE
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS posseder
    IDMODELEVOYAGE INTEGER NOT NULL  
    , PRIMARY KEY (IDPRESTATION,IDMODELEVOYAGE) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE POSSEDER
@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS note
    NOTE CHAR(32) NULL  
    , PRIMARY KEY (IDPRESTATION,IDAVIS) 
  ) 
- comment = "";
+ ENGINE=InnoDB;
 
 # -----------------------------------------------------------------------------
 #       INDEX DE LA TABLE NOTE
