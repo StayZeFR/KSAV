@@ -69,6 +69,13 @@ $routes->group("reviews", ["filter" => "authguard"], function (RouteCollection $
     $routes->get("(:num)", "ReviewController::viewDetails/$1", ["as" => "reviewViewDetails"]);
 });
 
+/*
+ * Regroupement de routes pour les statistiques
+ */
+$routes->group("stats", ["filter" => "authguard"], function (RouteCollection $routes) {
+    $routes->get("/", "StatsController::view", ["as" => "statsView"]);
+});
+
 $routes->get("/", "HomeController::view", ["as" => "homeView", "filter" => "authguard"]);
 
 $routes->get("/login", "LoginController::view", ["as" => "loginView"]);
@@ -81,4 +88,5 @@ $routes->get("/logout", "LoginController::logout", ["as" => "loginLogout"]);
 $routes->group("api", function (RouteCollection $routes) {
     $routes->post("model-travel/(:num)/services", "ModelTravelController::getServices/$1");
     $routes->post("travels/(:num)", "TravelController::getTravelsByID/$1");
+    $routes->POST("stats/travel/(:num)", "StatsController::getAVGByTravel/$1");
 });

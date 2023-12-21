@@ -60,13 +60,18 @@
                 </div>
             </li>
             <li class="slds-context-bar__item <?= $page == "customer" ? "slds-is-active" : "" ?>">
-                <a href="<?= url_to("customerViewList") ?>" class="slds-context-bar__label-action" title="ReviewsCustomers">
+                <a href="<?= url_to("customerViewList") ?>" class="slds-context-bar__label-action">
                     <span class="slds-truncate">Clients</span>
                 </a>
             </li>
             <li class="slds-context-bar__item <?= $page == "review" ? "slds-is-active" : "" ?>">
-                <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action" title="ReviewsCustomers">
+                <a href="<?= url_to("reviewViewList") ?>" class="slds-context-bar__label-action">
                     <span class="slds-truncate">Avis</span>
+                </a>
+            </li>
+            <li class="slds-context-bar__item <?= $page == "stats" ? "slds-is-active" : "" ?>">
+                <a href="<?= url_to("statsView") ?>" class="slds-context-bar__label-action">
+                    <span class="slds-truncate">Statistiques</span>
                 </a>
             </li>
             <li class="slds-context-bar__item">
