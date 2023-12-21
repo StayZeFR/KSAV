@@ -21,7 +21,15 @@ class TravelController extends BaseController
         
         $travels = $builder->get()->getResult();
 
-        return view("pages/travel/list", [ "page" => "instanceTravel", "travels" => $travels]);
+        $manager = new ModeleVoyageModel();
+        $modelsTravels = $manager->findAll();
+        $canAdd = count($modelsTravels) > 0;
+
+        return view("pages/travel/list", [
+            "page" => "instanceTravel",
+            "travels" => $travels,
+            "canAdd" => $canAdd
+        ]);
 
     }
 

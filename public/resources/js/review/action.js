@@ -79,3 +79,15 @@ function setDateTravels(id) {
         $("#id_travel-review").html("");
     }
 }
+
+$(document).ready(function () {
+    console.log("")
+    if (error.length > 0) {
+        Swal.fire({
+            icon: "error",
+            title: "Erreur",
+            text: error,
+            confirmButtonText: "Ok",
+        });
+    }
+});    

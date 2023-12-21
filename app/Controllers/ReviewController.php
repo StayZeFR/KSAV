@@ -23,9 +23,18 @@ class ReviewController extends BaseController
         $builder->join("modelevoyage", "modelevoyage.IDMODELEVOYAGE = voyage.IDMODELEVOYAGE");
         $reviews = $builder->get()->getResultArray();
 
+        $manager = new VoyageModel();
+        $travels = $manager->findAll();
+        $canAdd = count($travels) > 0;
+
+        $manager = new ClientModel();
+        $customers = $manager->findAll();
+        $canAdd = $canAdd && (count($customers) > 0);
+
         return view("pages/review/list", [
             "page" => "review", 
-            "reviews" => $reviews
+            "reviews" => $reviews,
+            "canAdd" => $canAdd
         ]);
     }
 
@@ -74,8 +83,14 @@ class ReviewController extends BaseController
             "IDCLIENT" => str_replace(" ", "", $this->request->getPost("client-review")),
             "IDAVIS" => $id
         ];
+        
+        if (strlen($data["IDRESERVATION"]) < 5) {            
+            session()->setFlashdata("error", "N°Réservation inférieur à 5 caractères");
+            return redirect()->to(url_to("reviewViewAdd"));
+        }
+        
         $manager->insert($data);
-
+        
         $manager = new NoteModel();
         $data = [];
         foreach ($this->request->getPost() as $key => $value) {
