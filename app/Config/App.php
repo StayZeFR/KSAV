@@ -16,7 +16,7 @@ class App extends BaseConfig
      *
      *    http://example.com/
      */
-    public string $baseURL = 'http://ksav.lan/';
+    public string $baseURL = 'http://ksavib.lan/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.

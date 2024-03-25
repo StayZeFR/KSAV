@@ -24,7 +24,7 @@ class LoginController extends BaseController
         $password = $this->request->getPost("password");
 
         if (!empty($login) || !empty($password)) {
-            $user = $manager->where("NOM", $login)->first();
+            $user = $manager->where("PSEUDO", $login)->first();
             if (!empty($user)) {
                 if (password_verify($password, $user["MDP"])) {
                     session()->set("isLoggedIn", true);

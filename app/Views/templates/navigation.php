@@ -48,7 +48,7 @@
                     <ul class="slds-dropdown__list" role="menu">
                         <li class="slds-dropdown__item" role="presentation">
                             <a href="<?= url_to("modelTravelList") ?>" role="menuitem" tabindex="-1">
-                                <span class="slds-truncate">Modèle Voyages</span>
+                                <span class="slds-truncate">Destinations</span>
                             </a>
                         </li>
                         <li class="slds-dropdown__item" role="presentation">

@@ -11,4 +11,5 @@ INSERT INTO prestation (LIBELLE, DESCRIPTION) VALUES ("Transfert", ""),
     ("Transport car", ""),
     ("Thalasso/SPA", ""),
     ("Croisiere", "");
-INSERT INTO utilisateur (NOM, MDP) VALUES ("admin", "$2y$10$cKD52jszt5utE1ozipFsMOzbqRqYmjQCi0w1j/XIsdkylmrp7uZ82");
+INSERT INTO role (IDROLE, LIBELLE) VALUES (1, "admin"), (2, "utilisateur");
+INSERT INTO utilisateur (PSEUDO, NOM, PRENOM, MDP, IDROLE, SEXE, DATECREATION) VALUES ("admin.admin", "admin", "admin", "$2y$10$cKD52jszt5utE1ozipFsMOzbqRqYmjQCi0w1j/XIsdkylmrp7uZ82", 1, 0, NOW());
