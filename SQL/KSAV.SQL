@@ -3,37 +3,37 @@ DROP DATABASE IF EXISTS KSAV;
 CREATE DATABASE IF NOT EXISTS KSAV;
 USE KSAV;
 # -----------------------------------------------------------------------------
-#       TABLE : UTILISATEUR
+#       TABLE : utilisateur
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS UTILISATEUR
+CREATE TABLE IF NOT EXISTS utilisateur
 (
-    IDUTILISATEUR   INTEGER(2)   NOT NULL AUTO_INCREMENT,
-    IDROLE          INTEGER(2)   NOT NULL,
-    PSEUDO          VARCHAR(128) NULL,
-    NOM             VARCHAR(128) NULL,
-    PRENOM          VARCHAR(128) NULL,
-    MDP             VARCHAR(255) NULL,
-    DATECREATION    DATETIME     NULL,
-    DATENAISSANCE   DATE         NULL,
-    SEXE            SMALLINT(1)  NULL,
+    IDUTILISATEUR INTEGER(2)   NOT NULL AUTO_INCREMENT,
+    IDROLE        INTEGER(2)   NOT NULL,
+    PSEUDO        VARCHAR(128) NULL,
+    NOM           VARCHAR(128) NULL,
+    PRENOM        VARCHAR(128) NULL,
+    MDP           VARCHAR(255) NULL,
+    DATECREATION  DATETIME     NULL,
+    DATENAISSANCE DATE         NULL,
+    SEXE          SMALLINT(1)  NULL,
     PRIMARY KEY (IDUTILISATEUR)
 )
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE UTILISATEUR
+#       INDEX DE LA TABLE utilisateur
 # -----------------------------------------------------------------------------
 
 
 CREATE INDEX I_FK_UTILISATEUR_ROLE
-    ON UTILISATEUR (IDROLE ASC);
+    ON utilisateur (IDROLE ASC);
 
 # -----------------------------------------------------------------------------
-#       TABLE : AVIS
+#       TABLE : avis
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS AVIS
+CREATE TABLE IF NOT EXISTS avis
 (
     IDAVIS         INTEGER(2)   NOT NULL AUTO_INCREMENT,
     POINTSNEGATIFS VARCHAR(128) NULL,
@@ -44,10 +44,10 @@ CREATE TABLE IF NOT EXISTS AVIS
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       TABLE : PRESTATION
+#       TABLE : prestation
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS PRESTATION
+CREATE TABLE IF NOT EXISTS prestation
 (
     IDPRESTATION INTEGER(2)   NOT NULL AUTO_INCREMENT,
     LIBELLE      CHAR(32)     NULL,
@@ -57,10 +57,10 @@ CREATE TABLE IF NOT EXISTS PRESTATION
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       TABLE : CLIENT
+#       TABLE : client
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS CLIENT
+CREATE TABLE IF NOT EXISTS client
 (
     IDCLIENT INTEGER(2)   NOT NULL AUTO_INCREMENT,
     NOM      CHAR(32)     NOT NULL,
@@ -73,10 +73,10 @@ CREATE TABLE IF NOT EXISTS CLIENT
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       TABLE : TYPEVOYAGE
+#       TABLE : typevoyage
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS TYPEVOYAGE
+CREATE TABLE IF NOT EXISTS typevoyage
 (
     IDTYPEVOYAGE INTEGER(2)   NOT NULL AUTO_INCREMENT,
     LIBELLE      VARCHAR(128) NOT NULL,
@@ -86,10 +86,10 @@ CREATE TABLE IF NOT EXISTS TYPEVOYAGE
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       TABLE : RESERVATION
+#       TABLE : reservation
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS RESERVATION
+CREATE TABLE IF NOT EXISTS reservation
 (
     IDRESERVATION CHAR(32)   NOT NULL,
     IDVOYAGE      INTEGER(2) NOT NULL,
@@ -100,24 +100,24 @@ CREATE TABLE IF NOT EXISTS RESERVATION
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE RESERVATION
+#       INDEX DE LA TABLE reservation
 # -----------------------------------------------------------------------------
 
 
 CREATE INDEX I_FK_RESERVATION_VOYAGE
-    ON RESERVATION (IDVOYAGE ASC);
+    ON reservation (IDVOYAGE ASC);
 
 CREATE INDEX I_FK_RESERVATION_CLIENT
-    ON RESERVATION (IDCLIENT ASC);
+    ON reservation (IDCLIENT ASC);
 
 CREATE INDEX I_FK_RESERVATION_AVIS
-    ON RESERVATION (IDAVIS ASC);
+    ON reservation (IDAVIS ASC);
 
 # -----------------------------------------------------------------------------
-#       TABLE : MODELEVOYAGE
+#       TABLE : modelevoyage
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS MODELEVOYAGE
+CREATE TABLE IF NOT EXISTS modelevoyage
 (
     IDMODELEVOYAGE INTEGER(2)   NOT NULL AUTO_INCREMENT,
     IDTYPEVOYAGE   INTEGER(2)   NOT NULL,
@@ -130,18 +130,18 @@ CREATE TABLE IF NOT EXISTS MODELEVOYAGE
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE MODELEVOYAGE
+#       INDEX DE LA TABLE modelevoyage
 # -----------------------------------------------------------------------------
 
 
 CREATE INDEX I_FK_MODELEVOYAGE_TYPEVOYAGE
-    ON MODELEVOYAGE (IDTYPEVOYAGE ASC);
+    ON modelevoyage (IDTYPEVOYAGE ASC);
 
 # -----------------------------------------------------------------------------
-#       TABLE : ROLE
+#       TABLE : role
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS ROLE
+CREATE TABLE IF NOT EXISTS role
 (
     IDROLE  INTEGER(2)   NOT NULL AUTO_INCREMENT,
     LIBELLE VARCHAR(128) NULL,
@@ -150,10 +150,10 @@ CREATE TABLE IF NOT EXISTS ROLE
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       TABLE : VOYAGE
+#       TABLE : voyage
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS VOYAGE
+CREATE TABLE IF NOT EXISTS voyage
 (
     IDVOYAGE       INTEGER(2) NOT NULL AUTO_INCREMENT,
     IDMODELEVOYAGE INTEGER(2) NOT NULL,
@@ -163,18 +163,18 @@ CREATE TABLE IF NOT EXISTS VOYAGE
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE VOYAGE
+#       INDEX DE LA TABLE voyage
 # -----------------------------------------------------------------------------
 
 
 CREATE INDEX I_FK_VOYAGE_MODELEVOYAGE
-    ON VOYAGE (IDMODELEVOYAGE ASC);
+    ON voyage (IDMODELEVOYAGE ASC);
 
 # -----------------------------------------------------------------------------
-#       TABLE : POSSEDER
+#       TABLE : posseder
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS POSSEDER
+CREATE TABLE IF NOT EXISTS posseder
 (
     IDPRESTATION   INTEGER(2) NOT NULL,
     IDMODELEVOYAGE INTEGER(2) NOT NULL,
@@ -183,21 +183,21 @@ CREATE TABLE IF NOT EXISTS POSSEDER
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE POSSEDER
+#       INDEX DE LA TABLE posseder
 # -----------------------------------------------------------------------------
 
 
 CREATE INDEX I_FK_POSSEDER_PRESTATION
-    ON POSSEDER (IDPRESTATION ASC);
+    ON posseder (IDPRESTATION ASC);
 
 CREATE INDEX I_FK_POSSEDER_MODELEVOYAGE
-    ON POSSEDER (IDMODELEVOYAGE ASC);
+    ON posseder (IDMODELEVOYAGE ASC);
 
 # -----------------------------------------------------------------------------
-#       TABLE : NOTE
+#       TABLE : note
 # -----------------------------------------------------------------------------
 
-CREATE TABLE IF NOT EXISTS NOTE
+CREATE TABLE IF NOT EXISTS note
 (
     IDPRESTATION INTEGER(2) NOT NULL,
     IDAVIS       INTEGER(2) NOT NULL,
@@ -207,15 +207,15 @@ CREATE TABLE IF NOT EXISTS NOTE
     ENGINE = InnoDB;
 
 # -----------------------------------------------------------------------------
-#       INDEX DE LA TABLE NOTE
+#       INDEX DE LA TABLE note
 # -----------------------------------------------------------------------------
 
 
 CREATE INDEX I_FK_NOTE_PRESTATION
-    ON NOTE (IDPRESTATION ASC);
+    ON note (IDPRESTATION ASC);
 
 CREATE INDEX I_FK_NOTE_AVIS
-    ON NOTE (IDAVIS ASC);
+    ON note (IDAVIS ASC);
 
 
 # -----------------------------------------------------------------------------
@@ -223,9 +223,9 @@ CREATE INDEX I_FK_NOTE_AVIS
 # -----------------------------------------------------------------------------
 
 
-ALTER TABLE UTILISATEUR
+ALTER TABLE utilisateur
     ADD FOREIGN KEY FK_UTILISATEUR_ROLE (IDROLE)
-        REFERENCES ROLE (IDROLE)
+        REFERENCES role (IDROLE)
         ON DELETE CASCADE;
 
 
