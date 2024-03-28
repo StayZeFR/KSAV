@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS KSAV;
+DROP DATABASE IF EXISTS ksav;
 
-CREATE DATABASE IF NOT EXISTS KSAV;
-USE KSAV;
+CREATE DATABASE IF NOT EXISTS ksav;
+USE ksav;
 # -----------------------------------------------------------------------------
 #       TABLE : utilisateur
 # -----------------------------------------------------------------------------
