@@ -118,7 +118,7 @@ class ReviewController extends BaseController
     {       
         $manager = new AvisModel();
         $builder = $manager->builder();
-        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, reservation.IDVOYAGE AS ID_VOYAGE, reservation.IDCLIENT AS ID_CLIENT, avis.IDAVIS AS ID_AVIS, avis.POINTSPOSITIFS AS AVIS_POINTSPOSITIFS, avis.POINTSNEGATIFS AS AVIS_POINTSNEGATIFS, avis.DATEAVIS AS DATE_AVIS, client.NOM AS CLIENT_NOM, client.PRENOM AS CLIENT_PRENOM, voyage.DATEDEPART AS DATE_DEPART, modelevoyage.NOM AS MODELEVOYAGE_NOM");
+        $builder->select("reservation.IDRESERVATION AS ID_RESERVATION, reservation.IDVOYAGE AS ID_VOYAGE, reservation.IDCLIENT AS ID_CLIENT, avis.IDAVIS AS ID_AVIS, avis.POINTSPOSITIFS AS AVIS_POINTSPOSITIFS, avis.POINTSNEGATIFS AS AVIS_POINTSNEGATIFS, avis.DATEAVIS AS DATE_AVIS, client.NOM AS CLIENT_NOM, client.PRENOM AS CLIENT_PRENOM, DATE_FORMAT(voyage.DATEDEPART, '%d/%m/%Y') AS DATE_DEPART, modelevoyage.NOM AS MODELEVOYAGE_NOM");
         $builder->join("reservation", "reservation.IDAVIS = avis.IDAVIS");
         $builder->join("client", "client.IDCLIENT = reservation.IDCLIENT");
         $builder->join("voyage","voyage.IDVOYAGE = reservation.IDVOYAGE");

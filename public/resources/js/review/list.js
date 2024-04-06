@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     const btnAction = (id) => {
-        let html = "<div class='slds-dropdown-trigger slds-dropdown-trigger_click'>" +
+        let html = "<div class='slds-dropdown-trigger slds-dropdown-trigger_click action-menu'>" +
                     "<button class='slds-button slds-button_icon slds-button_icon-border-filled' onclick='toggleMenu(this)'>" +
                     "<svg class='slds-button__icon' aria-hidden='true'>" +
                     "<use xlink:href='/resources/assets/icons/symbols.svg#down'></use>" +

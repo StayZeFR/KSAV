@@ -1,3 +1,5 @@
+let currentMenu = null;
+
 /**
  * Fonction qui transforme une date au format ISO en date au format français
  * 
@@ -18,6 +20,7 @@ function toggleMenu(element) {
     parent.classList.toggle("slds-is-open");
     let open = parent.classList.contains("slds-is-open");
     element.innerHTML = element.innerHTML.replace(open ? "down" : "up", open ? "up" : "down");
+    currentMenu = open ? element : null;
 }
 
 /**
@@ -37,9 +40,9 @@ function setSpaceText(spaces, text) {
 
 /**
  * Fonction permettant de supprimer une donnée en affichant une boîte de dialogue de confirmation
- * 
- * @param {*} text 
- * @param {*} url 
+ *
+ * @param html
+ * @param {*} url
  */
 function deleteData(html, url) {
     Swal.fire({

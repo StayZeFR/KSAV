@@ -82,7 +82,6 @@
                             <div class="slds-form-element__control">
                                 <div class="slds-select_container">
                                     <select class="slds-select" id="list_client-review" name="client-review"
-                                        value="<?= ($action == "add" ? "" : $review["CLIENT_NOM"]) ?>" 
                                         <?= ($action == "view" ? "disabled" : "") ?> required>
                                         <option value="">-- Sélectionner un client --</option>
                                         <?php
@@ -90,6 +89,8 @@
                                             foreach ($customers as $customer) {
                                                 echo "<option value='" . $customer["IDCLIENT"] . "'>" . $customer["NOM"] . " " . $customer["PRENOM"] . "</option>";
                                             }
+                                        } elseif ($action == "view") {
+                                            echo "<option value='' selected>" . $review["CLIENT_NOM"] . " " . $review["CLIENT_PRENOM"] . "</option>";
                                         }
                                         ?>
                                     </select>
